@@ -10,18 +10,19 @@ url="https://github.com/freestyl3r/rtl8187se"
 license=('GPL2')
 makedepends=('linux-headers')
 provides=('r8187se')
-source=("https://github.com/freestyl3r/rtl8187se/archives/3.15.tar.gz"
+source=("https://github.com/freestyl3r/rtl8187se/archive/3.15.tar.gz"
 		"$pkgname.install")
 install=$pkgname.install
-md5sums=('')
+md5sums=('SKIP'
+         '30f9a7c11f2c3381dcb0a4c5600f201f')
 
 build() {
-	cd $_modname
+	cd $pkgname-$pkgver/$_modname
 	make
 }
 
 package() {
-	cd $_modname
-	install -m644 $_modname.ko "$pkgdir/lib/modules/`uname -r`/extramodules/$_modname.ko"
+	cd $pkgname-$pkgver/$_modname
+	install -Dm644 $_modname.ko "$pkgdir/lib/modules/`uname -r`/extramodules/$_modname.ko"
 	gzip "$pkgdir/lib/modules/`uname -r`/extramodules/$_modname.ko"
 }
