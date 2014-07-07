@@ -1,0 +1,14 @@
+post_install() {
+	depmod
+	echo '>>> The module r8167se conflicts with r8180. You can blacklist it with:'
+	echo '>>>  `echo "blacklist r8180" > /etc/modprobe.d/r8180_blacklist.conf`'
+}
+
+post_upgrade() {
+	depmod
+}
+
+post_remove() {
+	depmod
+}
+
