@@ -1,11 +1,11 @@
 # The driver
 
 rtl8187se chipsets (that's the PCI express version), used the `r8187se` kernel module up till the **3.14** kernel.  
-From linux kernel version **3.15** and up, `r8187se` is [removed](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=5ed0a8e667090003fdf7b750296fcfb248349502) and `r8180` module [gained support](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9d2ffb81608da30c3293fb7e20474358a5951cca) for the `r8187se` chipsets.
+From linux kernel version **3.15** and up, `r8187se` is [removed](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=5ed0a8e667090003fdf7b750296fcfb248349502) and `rtl8180` module [gained support](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9d2ffb81608da30c3293fb7e20474358a5951cca) for the `r8187se` chipsets.
 
 ## The problem
 
-So far so good, except that the `r8180` driver does not seem to work properly for the owners of `rtl8187se` cards.  
+So far so good, except that the `rtl8180` driver does not seem to work properly for the owners of `rtl8187se` cards.  
 A friend has reported getting only 15% signal regardless the network.
 
 ## The solution
@@ -13,9 +13,9 @@ A friend has reported getting only 15% signal regardless the network.
 I grabbed the module from version **3.14** before it was deleted, changed the Makefile a bit to allow building it as an external module, and made packages for Archlinux / Gentoo to make the process easier.  
 It's unlikely a rebuilt will be needed for minor kernel versions. For the next major versions we'll have to wait and see.  
 
-To blacklist the `r8180` module enter the following:
+To blacklist the `rtl8180` module enter the following:
 
-    echo "blacklist r8180" > /etc/modprobe.d/r8180_blacklist.conf
+    echo "blacklist rtl8180" > /etc/modprobe.d/rtl8180_blacklist.conf
 
 If the `r8187se` is not loaded automatically, you can add it yourself in Archlinux & Gentoo (with systemd):
 
