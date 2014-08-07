@@ -11,7 +11,7 @@ A friend has reported getting only 15% signal regardless the network.
 ## The solution
 
 I grabbed the module from version **3.14** before it was deleted, changed the Makefile a bit to allow building it as an external module, and made packages for Archlinux / Gentoo to make the process easier.  
-It's unlikely a rebuilt will be needed for minor kernel versions. For the next major versions we'll have to wait and see.  
+It may need to be rebuilt across some minor / major kernel updates.  
 
 To blacklist the `rtl8180` module enter the following:
 
