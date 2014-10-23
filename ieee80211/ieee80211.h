@@ -600,12 +600,6 @@ struct ieee80211_txb {
 #define NETWORK_HAS_OFDM	(1 << 1)
 #define NETWORK_HAS_CCK		(1 << 2)
 
-struct ieee80211_wmm_ac_param {
-	u8 ac_aci_acm_aifsn;
-	u8 ac_ecwmin_ecwmax;
-	u16 ac_txop_limit;
-};
-
 struct ieee80211_wmm_ts_info {
 	u8 ac_dir_tid;
 	u8 ac_up_psb;

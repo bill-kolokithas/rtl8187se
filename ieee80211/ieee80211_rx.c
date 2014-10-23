@@ -1259,10 +1259,10 @@ inline void update_network(struct ieee80211_network *dst,
 	  memcpy(dst->wmm_param, src->wmm_param, IEEE80211_AC_PRAM_LEN);
 	}
 */
-	if (src->wmm_param[0].ac_aci_acm_aifsn || \
-	   src->wmm_param[1].ac_aci_acm_aifsn || \
-	   src->wmm_param[2].ac_aci_acm_aifsn || \
-	   src->wmm_param[3].ac_aci_acm_aifsn) {
+	if (src->wmm_param[0].aci_aifsn || \
+	   src->wmm_param[1].aci_aifsn || \
+	   src->wmm_param[2].aci_aifsn || \
+	   src->wmm_param[3].aci_aifsn) {
 		memcpy(dst->wmm_param, src->wmm_param, WME_AC_PRAM_LEN);
 	}
 	dst->QoS_Enable = src->QoS_Enable;
