@@ -90,6 +90,9 @@
 
 #define	IEEE_CRYPT_ALG_NAME_LEN			16
 
+#define vlan_tx_tag_get(skb)     skb_vlan_tag_get(skb)
+#define vlan_tx_tag_present(skb) skb_vlan_tag_present(skb)
+
 extern int ieee80211_crypto_tkip_init(void);
 extern void ieee80211_crypto_tkip_exit(void);
 
